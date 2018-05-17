@@ -1,4 +1,207 @@
-<html>
-    <p>Hi there!</p>
-    <p>It works!</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>KOBL - Create New Notification</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+	<button type="button" class="btn btn-primary">Back</button>
+    <div class="container">
+
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Create New Notification</h2>
+        <p class="lead">Be as detailed as possible, seek assistance if you are unsure of what to place in a mandatory field.</p>
+      </div>
+<!--       <div class="col-md-8 order-md-1">   -->
+		<div class="mb-3">
+          <h4 class="mb-3">Required Information</h4>
+          <form class="needs-validation" novalidate>
+
+            <div class="mb-3">
+              <label for="shortText">Description - Length is limited</label>
+              <input type="text" class="form-control" id="shortText" maxlength="40" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Description is required.
+              </div>
+            </div>
+
+    <label for="submittedBy" class="mb-3">Submitted By</label>
+    <div class="mb-3">
+      <input class="form-control" id="disabledInput" type="text" value="Andrew Wheeler" disabled>
+    </div>
+			
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Contact Person</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Prefill with current user" value="" required>
+                <div class="invalid-feedback">
+                  Contact person is required.
+                </div>
+              </div>
+			  
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Contact Number</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Contact number is required.
+                </div>
+              </div>
+            </div>
+
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Long Text</span>
+				</div>
+				<textarea class="form-control" aria-label="Long Text"></textarea>
+			</div>
+			
+            <div class="mb-3">
+              <label for="address">Functional Location</label>
+              <input type="text" class="form-control" id="address" placeholder="" required>
+              <div class="invalid-feedback">
+                Please enter a fucntional location.
+              </div>
+            </div>
+			
+			<div class="mb-3">
+			  <label for="photo1">Photos</label>
+			  <div class="custom-file">
+			    <input type="file" class="custom-file-input" id="photo1">
+			    <label class="custom-file-label" for="photo1">Choose file</label>
+			  </div>
+			</div>
+			
+            <div class="mb-3">
+              <label for="additionalEquipment">Additional Equipment</label>
+              <input type="text" class="form-control" id="additionalEquipment" placeholder="JLG, scissorlift, scaffolding, etc.">
+              <div class="invalid-feedback">
+                Please specify.
+              </div>
+            </div>
+
+
+
+            <div class="mb-3">
+              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="jlgRequired">JLG</label>
+                <select class="custom-select d-block w-100" id="jlgRequired" required>
+<                  <option value="" selected disabled>Choose...</option>
+                  <option value="">Yes</option>
+				  <option value="">No</option>
+				  <option value="">Unsure</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please specify.
+                </div>
+              </div>
+			  <div class="col-md-3 mb-3">
+                <label for="scaffRequired">Scaffolding</label>
+                <select class="custom-select d-block w-100" id="scaffRequired" required>
+<                  <option value="" selected disabled>Choose...</option>
+                  <option value="">Yes</option>
+				  <option value="">No</option>
+				  <option value="">Unsure</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please specify.
+                </div>
+              </div>
+              <div class=" col-md-6 mb-3">
+                <label for="zip">Other</label>
+                <input type="text" class="form-control" id="zip" placeholder="">
+              </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="same-address">
+              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info">Save this information for next time</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Additional Equipment - JLG</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                <label class="custom-control-label" for="credit">Yes</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="debit">No</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                <label class="custom-control-label" for="paypal">Unsure</label>
+              </div>
+            </div>
+  
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Proceed</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2018 KOBL Group</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
 </html>
