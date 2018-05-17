@@ -1,0 +1,9 @@
+*.pyc
+*~
+__pycache__
+koblvenv
+db.sqlite3
+kobl.7z
+/static
+.DS_Store
+web.7z
