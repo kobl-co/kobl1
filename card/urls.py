@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import re_path
 
 from . import views
 
 urlpatterns = [
-    path('^$', views.card_list, name='card_list'),
+    re_path('^$', views.card_list, name='card_list'),
 ]
