@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>KOBL - Dashboard</title>
+    <title>KOBL - Create New Notification</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -18,29 +18,37 @@
 
   <body class="bg-light">
     <div class="container">
+	
+<li><a href="{% url 'index:index' %}">go home</a></li>
+	
+	{% if c %}
+		<ul>
+			<li>{{ c.id }}</li>
+			<li>{{ c.title }}</li>
+			<li>{{ c.text }}</li>
+			<li>{{ c.author }}</li>
+			<li>{{ c.contact_person }}</li>
+			<li>{{ c.functional_location }}</li>
+			<li>{{ c.created_date }}</li>
+			<li>{{ c.published_date }}</li>
+			<li>{{ c.status }}</li>
 
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>KOBL Dashboard</h2>
-        <p class="lead">Please select from one of the available options.</p>
-      </div>
-	  <div class="my-5 pt-5 text-muted text-center text-small btn-lg">
-	  <button type="button" class="btn btn-primary btn-lg">Available Cards</button>
-	  <button type="button" class="btn btn-primary btn-lg">New Cards</button>
-	  <button type="button" class="btn btn-primary btn-lg">Rejected Cards</button>
-	  </div>
-	  
+		</ul>
+	{% else %}
+		<p>No card is available.</p>
+	{% endif %}
 
+    </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2018 KOBL.co</p>
+        <p class="mb-1">&copy; 2018 KOBL Group</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
           <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
       </footer>
-    </div>
+    </body>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

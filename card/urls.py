@@ -1,8 +1,10 @@
-from django.urls import re_path
+from django.urls import path
 
 from . import views
 
+app_name = 'card'
 urlpatterns = [
-    re_path('card/', views.card_list, name='card_list'),
-	re_path('^$', views.index, name='index'),
+    path('', views.card_list, name='card_list'),
+	path('card/<int:id>/', views.card_detail, name='card_detail'),
+	path('<int:id>/', views.card_detail, name='card_detail'),
 ]

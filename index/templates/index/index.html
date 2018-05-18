@@ -17,21 +17,22 @@
   </head>
 
   <body class="bg-light">
+  
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'index:index' %}">KOBL</a>
+</nav>
+  
     <div class="container">
-
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h2>KOBL Dashboard</h2>
         <p class="lead">Please select from one of the available options.</p>
       </div>
 	  <div class="my-5 pt-5 text-muted text-center text-small btn-lg">
-	  <button type="button" class="btn btn-primary btn-lg">Available Cards</button>
-	  <button type="button" class="btn btn-primary btn-lg">New Card</button>
-	  <button type="button" class="btn btn-primary btn-lg">Rejected Cards</button>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Available Cards</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">New Card</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Rejected Cards</a>
 	  </div>
 	  
-
-
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2018 KOBL.co</p>
         <ul class="list-inline">
