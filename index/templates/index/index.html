@@ -27,10 +27,15 @@
         <h2>KOBL Dashboard</h2>
         <p class="lead">Please select from one of the available options.</p>
       </div>
-	  <div class="my-5 pt-5 text-muted text-center text-small btn-lg">
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Available Cards</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">New Card</a>
+	  <div class="my-5 pt-5 text-center">
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_new' %}" role="button">Create a Card</a>
+		</div>
+		<div class="my-5 text-center">
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">New Cards</a>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Checked Cards</a>
+
         <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Rejected Cards</a>
+		<a class="btn btn-primary btn-lg" href="{% url 'card:card_list' card:card_status='approved'%}" role="button">Approved Cards</a>
 	  </div>
 	  
       <footer class="my-5 pt-5 text-muted text-center text-small">
