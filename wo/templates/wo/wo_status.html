@@ -31,32 +31,24 @@
           <form class="needs-validation" novalidate>
 
             <div class="mb-3">
-              <label for="shortText">text = Description - Length is limited</label>
-              <input type="text" class="form-control" id="shortText" maxlength="40" placeholder="" value="" required>
+              <label for="shortText">WO Number</label>
+              <input type="text" class="form-control" id="shortText" maxlength="40" placeholder="11354284" value="" required>
               <div class="invalid-feedback">
                 Description is required.
               </div>
             </div>
 
-    <label for="submittedBy" class="mb-3">author = Submitted By</label>
-    <div class="mb-3">
-      <input class="form-control" id="disabledInput" type="text" value="Andrew Wheeler" disabled>
-    </div>
+			<label for="submittedBy" class="mb-3">WO short text</label>
+			<div class="mb-3">
+				<input class="form-control" id="disabledInput" type="text" value="2 stand approach table # 2 north lineshaft failure" disabled>
+			</div>
 			
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Contact_Person</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Prefill with current user" value="" required>
+                <input type="text" class="form-control" id="firstName" placeholder="Andrew Wheeler" required>
                 <div class="invalid-feedback">
                   Contact person is required.
-                </div>
-              </div>
-			  
-              <div class="col-md-6 mb-3">
-                <label for="lastName">++Contact Number</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Contact number is required.
                 </div>
               </div>
             </div>
@@ -70,81 +62,38 @@
 			
             <div class="mb-3">
               <label for="address">Functional Location</label>
-              <input type="text" class="form-control" id="address" placeholder="" required>
+              <input type="text" class="form-control" id="address" placeholder="RSM/002/013" required>
               <div class="invalid-feedback">
                 Please enter a fucntional location.
               </div>
             </div>
 			
 			<div class="mb-3">
-			  <label for="photo1">++Photos</label>
+			  <label for="photo1">Photos</label>
 			  <div class="custom-file">
 			    <input type="file" class="custom-file-input" id="photo1">
 			    <label class="custom-file-label" for="photo1">Choose file</label>
 			  </div>
 			</div>
 			
-            <div class="mb-3">
-              <label for="additionalEquipment">++Additional Equipment</label>
-              <input type="text" class="form-control" id="additionalEquipment" placeholder="JLG, scissorlift, scaffolding, etc.">
-              <div class="invalid-feedback">
-                Please specify.
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="jlgRequired">++JLG</label>
-                <select class="custom-select d-block w-100" id="jlgRequired" required>
-<                  <option value="" selected disabled>Choose...</option>
-                  <option value="">Yes</option>
-				  <option value="">No</option>
-				  <option value="">Unsure</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please specify.
-                </div>
-              </div>
-			  <div class="col-md-3 mb-3">
-                <label for="scaffRequired">++Scaffolding</label>
-                <select class="custom-select d-block w-100" id="scaffRequired" required>
-<                  <option value="" selected disabled>Choose...</option>
-                  <option value="">Yes</option>
-				  <option value="">No</option>
-				  <option value="">Unsure</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please specify.
-                </div>
-              </div>
-              <div class=" col-md-6 mb-3">
-                <label for="zip">++Other</label>
-                <input type="text" class="form-control" id="zip" placeholder="">
-              </div>
-            </div>
-            <hr class="mb-4">
-            <h4 class="mb-3">++Additional Equipment - JLG</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Yes</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">No</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Unsure</label>
-              </div>
-            </div>
-  
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Proceed</button>
-          </form>
-        </div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				<label class="form-check-label" for="defaultCheck1">
+					Requires Scaffolding
+				</label>
+				</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+				<label class="form-check-label" for="defaultCheck2">
+					Awaiting components
+				</label>
+			</div>
+          </div>
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Proceed</button>
+        </form>
       </div>
+    </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2018 KOBL Group</p>

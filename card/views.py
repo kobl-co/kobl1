@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.template import loader
 from .models import Card
+from .forms import CardForm
 
 def card_list(request):
 	cards = Card.objects.order_by('-published_date')
@@ -33,4 +34,25 @@ def card_detail(request, id):
     return render(request, 'card/card_detail.html', {'c': c})
 	
 def card_create(request):
-    return render(request, 'card/card_create.html', {})
+    if request.method == 'POST':
+      fresh_card = CardForm(request.POST)
+   #   return HttpResponse('/almost there/')
+ #     return HttpResponse(fresh_card)
+      if(fresh_card.is_valid()):
+	    #SAVE IT!
+        return HttpResponse('/almost there/')
+    else:
+      fresh_card = CardForm()
+    return render(request, 'card/card_create.html', {'fresh_card': fresh_card})
+	
+
+def card_submit(request):
+	#Card.objects.create()
+	
+    return render(request, 'card/card_create.html', {})   
+		
+   #     selected_choice.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+     #   return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))

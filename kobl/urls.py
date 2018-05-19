@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+#include('wo.urls')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', include('index.urls')),
-	path('card/', include('card.urls')),
-	path('card/<int:num>/', include('card.urls')),
-	path('wo/status/', include('wo.urls')),
+	path('cards/', include('card.urls')),
+	path('', include('card.urls')),
+	path('', include('wo.urls')),
 	path('blog/',include('blog.urls')),
 	
 ]
+
+#handling of url dispatcher incorrect. need to resolve.

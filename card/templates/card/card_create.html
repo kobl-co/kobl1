@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>KOBL - Create New Notification</title>
+    <title>KOBL - Create a card</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -22,41 +22,45 @@
 </nav>
     <div class="container">
       <div class="py-3 text-center">
-        <h2>Create New Notification</h2>
+        <h2>Create a card</h2>
+		
+		
+		
         <p class="lead">Be as detailed as possible, seek assistance if you are unsure of what to place in a mandatory field.</p>
       </div>
 <!--       <div class="col-md-8 order-md-1">   -->
 		<div class="mb-3">
           <h4 class="mb-3">Required Information</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate action="{% url 'card:card_create' %}"method="post">
+            {% csrf_token %}
+{#			{{ fresh_card }} #}
 
+            {{ fresh_card.non_field_errors }}
+
+            {% for hidden_field in fresh_card.hidden_fields %}
+              {{ hidden_field.errors }}
+              {{ hidden_field }}
+            {% endfor %}
+  
             <div class="mb-3">
-              <label for="shortText">text = Description - Length is limited</label>
-              <input type="text" class="form-control" id="shortText" maxlength="40" placeholder="" value="" required>
+              <label for="shortText">Title - Length is limited</label>
+              <input type="text" class="form-control" id= "{{ fresh_card.title.id_for_label }}" maxlength="40" placeholder="" value="" required>
               <div class="invalid-feedback">
-                Description is required.
+                A title is required.
               </div>
             </div>
 
-    <label for="submittedBy" class="mb-3">author = Submitted By</label>
-    <div class="mb-3">
-      <input class="form-control" id="disabledInput" type="text" value="Andrew Wheeler" disabled>
-    </div>
+            <label for="submittedBy" class="mb-3">Submitted By</label>
+              <div class="mb-3">
+              <input class="form-control" id="disabledInput" type="text" value="{{ user.get_username }}" disabled>
+            </div>
 			
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">Contact_Person</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Prefill with current user" value="" required>
+                <label for="firstName">Contact Person</label>
+                <input type="text" class="form-control" id="{{ fresh_card.contact_person.id_for_label }}" placeholder="Prefill with current user" value="John Snow" required>
                 <div class="invalid-feedback">
                   Contact person is required.
-                </div>
-              </div>
-			  
-              <div class="col-md-6 mb-3">
-                <label for="lastName">++Contact Number</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  Contact number is required.
                 </div>
               </div>
             </div>
@@ -65,78 +69,14 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">Text</span>
 				</div>
-				<textarea class="form-control" aria-label="Long Text"></textarea>
+				<textarea class="form-control" id="{{ fresh_card.text.id_for_label }}" aria-label="Long Text"></textarea>
 			</div>
 			
             <div class="mb-3">
               <label for="address">Functional Location</label>
-              <input type="text" class="form-control" id="address" placeholder="" required>
+              <input type="text" class="form-control" id="{{ fresh_card.functional_location.id_for_label }}" placeholder="" required>
               <div class="invalid-feedback">
                 Please enter a fucntional location.
-              </div>
-            </div>
-			
-			<div class="mb-3">
-			  <label for="photo1">++Photos</label>
-			  <div class="custom-file">
-			    <input type="file" class="custom-file-input" id="photo1">
-			    <label class="custom-file-label" for="photo1">Choose file</label>
-			  </div>
-			</div>
-			
-            <div class="mb-3">
-              <label for="additionalEquipment">++Additional Equipment</label>
-              <input type="text" class="form-control" id="additionalEquipment" placeholder="JLG, scissorlift, scaffolding, etc.">
-              <div class="invalid-feedback">
-                Please specify.
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="jlgRequired">++JLG</label>
-                <select class="custom-select d-block w-100" id="jlgRequired" required>
-<                  <option value="" selected disabled>Choose...</option>
-                  <option value="">Yes</option>
-				  <option value="">No</option>
-				  <option value="">Unsure</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please specify.
-                </div>
-              </div>
-			  <div class="col-md-3 mb-3">
-                <label for="scaffRequired">++Scaffolding</label>
-                <select class="custom-select d-block w-100" id="scaffRequired" required>
-<                  <option value="" selected disabled>Choose...</option>
-                  <option value="">Yes</option>
-				  <option value="">No</option>
-				  <option value="">Unsure</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please specify.
-                </div>
-              </div>
-              <div class=" col-md-6 mb-3">
-                <label for="zip">++Other</label>
-                <input type="text" class="form-control" id="zip" placeholder="">
-              </div>
-            </div>
-            <hr class="mb-4">
-            <h4 class="mb-3">++Additional Equipment - JLG</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                <label class="custom-control-label" for="credit">Yes</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="debit">No</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">Unsure</label>
               </div>
             </div>
   
@@ -147,7 +87,6 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2018 KOBL Group</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
