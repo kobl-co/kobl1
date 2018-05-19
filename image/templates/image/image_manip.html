@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,13 +8,22 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>KOBL - Dashboard</title>
+    <title>KOBL - Image manip</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	 <link href="/static/css/literallycanvas.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="form-validation.css" rel="stylesheet">
+
+	<link href="{% static "image/css/literallycanvas.css" %}" rel="stylesheet">
+	
+	<!-- dependency: React.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+
+	<script src="{% static "image/js/literallycanvas-core.js" %}" ></script>	
   </head>
 
   <body class="bg-light">
@@ -21,42 +31,33 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="{% url 'index:index' %}">KOBL</a>
 </nav>
-  
-    <div class="container">
-      <div class="py-5 text-center">
-        <h2>KOBL Dashboard</h2>
-        <p class="lead">Please select from one of the available options.</p>
-      </div>
-	  <div class="my-5 pt-5 text-center">
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_create' %}" role="button">Create a Card</a>
-		</div>
-		<div class="my-5 text-center">
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_new' %}" role="button">New Cards</a>
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_checked' %}" role="button">Checked Cards</a>
 
-        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_rejected' %}" role="button">Rejected Cards</a>
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_approved' %}" role="button">Approved Cards</a>
-	  </div>
-	  <div class="my-5 pt-5 text-center">
-	    <a class="btn btn-primary btn-lg" href="{% url 'wo:wo_status_update' %}" role="button">WO Status Update</a>
-		<a class="btn btn-primary btn-lg" href="{% url 'image:image_manip' %}" role="button">Drawing Tool</a>
-		</div>
-		<div class="my-5 text-center">
-		<a class="btn btn-primary btn-lg" href="{% url 'blog:blog_index' %}" role="button">BLOG</a>
-	  </div>
-	  
+    <div class="container">
+	
+ <div class="my-drawing"></div>
+
+    <!-- kick it off -->
+    <script>
+        LC.init(
+            document.getElementsByClassName('my-drawing')[0],
+            {imageURLPrefix: '{% static "image/img" %}'}
+        );
+    </script>
+
+    </div>
+
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2018 KOBL.co</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
           <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
       </footer>
-    </div>
+    </body>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
+    <!-- replace window.LC with core build version -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>

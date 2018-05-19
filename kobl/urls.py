@@ -24,6 +24,7 @@ urlpatterns = [
 	path('cards/', include('card.urls')),
 	path('', include('card.urls')),
 	path('', include('wo.urls')),
+	path('', include('image.urls')),
 	path('blog/',include('blog.urls')),
 	
 ]

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 	'reversion',
 	'wo',
 	'blog',
+	'image',
 ]
 
 MIDDLEWARE = [
