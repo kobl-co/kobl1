@@ -28,14 +28,20 @@
         <p class="lead">Please select from one of the available options.</p>
       </div>
 	  <div class="my-5 pt-5 text-center">
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_new' %}" role="button">Create a Card</a>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_create' %}" role="button">Create a Card</a>
 		</div>
 		<div class="my-5 text-center">
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">New Cards</a>
-	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Checked Cards</a>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_new' %}" role="button">New Cards</a>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_checked' %}" role="button">Checked Cards</a>
 
-        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list' %}" role="button">Rejected Cards</a>
-		<a class="btn btn-primary btn-lg" href="{% url 'card:card_list' card:card_status='approved'%}" role="button">Approved Cards</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_rejected' %}" role="button">Rejected Cards</a>
+	    <a class="btn btn-primary btn-lg" href="{% url 'card:card_list_approved' %}" role="button">Approved Cards</a>
+	  </div>
+	  <div class="my-5 pt-5 text-center">
+	    <a class="btn btn-primary btn-lg" href="{% url 'wo:wo_status_update' %}" role="button">WO Status Update</a>
+		</div>
+		<div class="my-5 text-center">
+		<a class="btn btn-primary btn-lg" href="{% url 'blog:blog_index' %}" role="button">BLOG</a>
 	  </div>
 	  
       <footer class="my-5 pt-5 text-muted text-center text-small">

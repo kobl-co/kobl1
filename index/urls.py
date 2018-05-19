@@ -21,5 +21,4 @@ app_name = 'index'
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('', views.index, name='index'),
-#	path('card/', include('card.urls')),
 ]

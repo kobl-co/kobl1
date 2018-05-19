@@ -17,22 +17,55 @@
   </head>
 
   <body class="bg-light">
+
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'index:index' %}">KOBL</a>
+  </nav>
+  <div class="py-3 text-center">
+	<h1>Cards</h1>
+	</div>
+
     <div class="container">
 	
-	{% if cards %}
-		<ul>
-		{% for card in cards %}
-			<li><a href="/card/{{ card.id }}/">{{ card.title }}</a></li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No cards are available.</p>
-	{% endif %}
+	{% if cards %}	
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+		    {% for card in cards %}
+            <div class="col-md-12">
+              <div class="card mb-4 box-shadow">
+				  <div class="card-body">
+                  <a class="card-title h5" href="/card/{{ card.id }}/">{{ card.title }}</a>
+				  {#<p></p> #}
+				  <p class="card-text">{{ card.text }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+					  <a class="btn btn-sm btn-outline-secondary" href="/card/{{ card.id }}/" role="button">View</a>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">{{ card.publish_date }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+			{% endfor %}
+	        {% else %}
+            <div class="col-md-12">
+              <div class="card mb-4 box-shadow">
+				<div class="card-body">
+                  <p class="card-title">No cards to display</p>
+                </div>
+              </div>
+            </div>
+	        {% endif %}
+	      </div>
+        </div>
+      </div>
 
     </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2018 KOBL Group</p>
+ {#       <p class="mb-1">&copy; 2018 KOBL Group</p>  #}
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>

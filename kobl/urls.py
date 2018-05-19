@@ -21,5 +21,7 @@ urlpatterns = [
 	path('', include('index.urls')),
 	path('card/', include('card.urls')),
 	path('card/<int:num>/', include('card.urls')),
+	path('wo/status/', include('wo.urls')),
+	path('blog/',include('blog.urls')),
 	
 ]

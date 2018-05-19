@@ -8,7 +8,7 @@ class Card(models.Model):
     contact_person = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    functional_location = models.TextField()
+    functional_location = models.CharField(max_length=200)
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
